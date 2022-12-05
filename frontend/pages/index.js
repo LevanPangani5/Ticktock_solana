@@ -1,8 +1,13 @@
 import MianView from '../components/MainView'
+import {useWallet} from '@solana/wallet-adapter-react'
+import {WalletMultiButton} from '@solana/wallet-adapter-react-ui'
 
-let connected = true;
+
+
 
 export default function Home() {
+
+  const {connected} =useWallet()
   return (
     <div className= "app">
     {connected ?(
@@ -11,6 +16,7 @@ export default function Home() {
       <div classNmae="loginContainer">
         <div className="loginTitle">Login to ticktock </div>
         <div className="loginSubTitle">manage your account , check notifications , comment on videos , more ..</div>
+        <WalletMultiButton/>
         </div>
     )}
 
